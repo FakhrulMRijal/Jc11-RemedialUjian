@@ -1,0 +1,93 @@
+// 1. DIketahui di sebuah kota kecil mempunyai populasi awal sebanyak 1000 (p0 = 1000) di awal tahun.
+// Populasi akan bertambah sebesar 2% setiap tahunnya, dan ditambah juga 50 orang imigran. Berapa
+// tahun yang dibutuhkan untuk populasi kota tersebut untuk menca
+// pai 1200 (p = 1200)?
+// Di awal tahun pertama akan ada:
+// 1000 + 1000 * 0.02 +50 = 1070 penduduk
+// di akhir tahun kedua akan ada:
+// 1070 + 1070 * 0.02 + 50 = 1141 penduduk
+// Parameter yang diberikan pada kedalam function adalah:
+// population(p0, percent, imigran, ta
+// rgetPopulasi)
+// population(1000, 2,50,1200) ==> return 3
+function population(p0, percent, imigran, targetPopulasi){
+//code here
+var total = 0;   
+while(p0<targetPopulasi){
+    p0 += p0 * percent/100 + imigran;
+    total++;
+}
+return total;
+}
+
+console.log(population(1000, 2, 50, 1200))
+
+// 2. Buat sebuah sebuah function yang berfungsi untuk print segitiga sama kaki di html yang terdiri hanya
+// dari angka ganjil. juml
+// ah baris pada segitiga tergantung dari parameter yang diterima oleh function.
+// eg. segitigaGanjil(5) ==>
+// lalu buat function yang menambahkan jumlah angka pada baris di segitiga tersebut.
+// segitigaGanjilTambah(2) ==> 3+5 = 8
+
+function segitigaGanjil(n){
+    var startNum = n*(n-1) + 1
+    var rowArr = [startNum];
+    var total = 0
+
+    for(i = 0; i < n -1; i++) {
+        rowArr.push(rowArr[i]+ 2);
+    }
+    for(i = 0; i < rowArr.length; i++){
+        total += rowArr[i]
+    }
+    return rowArr
+}
+
+console.log(segitigaGanjil(1))
+console.log(segitigaGanjil(5))
+
+function segitigaGanjilTambah(n){
+    return Math.pow(n, 3)
+}
+
+console.log(segitigaGanjilTambah(2))
+
+
+// 3. Avengers baru saja keluar di bioskop terdekat. Orang
+// -
+// orang sudah mengantri untuk membeli tiket
+// dengan uang 25, 50, dan 100 dollar. Satu tiket avengers harganya 25 dollar. Vasya sedang bekerja
+// sebagai penjual tiket dan i
+// a ingin menjual tiket ke setiap orang yang telah mengantri. Bisakah dia
+// menjual tiket ke setiap penonton apabila di awal dia tidak mempunyai uang kembalian?
+// function ticket() me return YES apabila vasya menjual tiket ke seseorang dengan uang kembalian yang
+// sepadan. apabila tidak, return NO
+// contoh:
+// tickets([25, 25, 50]) // => YES
+// tickets([25, 100]) // => NO. Vasya tidak punya uang kembalian yang cukup untuk 100 dollar
+// tickets([25, 25, 50, 50, 100]) // => NO. Vasya tidak punya pecahan uang yang tepat untuk
+// m
+// engembalikan 75 dollar
+
+function ticket(dollar){
+    var uang = 50
+    var pecahan = 75
+    var output = ''
+    for(i = 0; i < dollar.length; i++){
+        if(uang < dollar[1]){
+            return output = 'No. Vasya tidak ada uang ' + dollar[1] + ' dollar '
+        } else if(pecahan < dollar[4]){
+            return output = 'No. vasya tidak punya uang pecahan ' + pecahan
+        } else {
+            return output = 'Yes'
+        }
+        }
+    }
+
+
+console.log(ticket([25, 25, 50]))
+console.log(ticket([25, 100]))
+console.log(ticket([25, 25, 50, 50, 100]))
+
+
+
